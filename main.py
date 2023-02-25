@@ -62,8 +62,8 @@ def create_page():
     )
 
 if __name__ == '__main__':
-    _: int
-    for _ in range(1000):
+    i: int
+    for i in range(1000):
         book = Book(
             title=names.get_first_name(),
             description=names.get_last_name(),
@@ -78,6 +78,8 @@ if __name__ == '__main__':
             ]
         )
         books.append(book)
+        if book.compar.compare(books[i - 1], books[i]):
+            books.pop(i)
 
     app.run(
         host='localhost',
